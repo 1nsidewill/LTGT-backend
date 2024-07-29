@@ -14,3 +14,36 @@ THEN *** poetry config virtualenvs.in-project true
    ```bash
    git clone https://github.com/yourusername/fastapi-backend.git
    cd fastapi-backend
+
+2. **Install Poetry (wsl):**
+   ```bash
+   sudo apt update && sudo apt upgrade -y
+
+   # remove Python3.10
+   sudo apt-get purge --auto-remove python3 -y
+
+   # install python3.12
+   sudo apt-get install software-properties-common
+   sudo add-apt-repository ppa:deadsnakes/ppa -y
+   sudo apt update
+   sudo apt install python3.12 -y
+
+   # version check python3
+   python3 --version    #3.12 나오면 정상
+
+   # install poetry (pipx)
+   sudo apt install pipx -y
+   pipx install poetry
+
+   # env setting
+   sudo vi ~/.bashrc
+   # add last line
+   PATH="$HOME/.local/bin:$PATH"
+   # run source command
+   source ~/.bashrc
+
+   # 
+   cd LTGT-backend
+   poetry config virtualenvs.in-project true
+   poetry install
+   poetry shell
